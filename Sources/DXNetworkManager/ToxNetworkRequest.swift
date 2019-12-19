@@ -36,8 +36,8 @@ public enum RequestType: String, Codable {
 /// Struttura di una richiesta. Contiene solo la requestType che è la path del server.
 /// - Esempio: requestType = "example" --> suppstudenti.com:5000/example
 public struct BasicRequest: ToxNetworkRequest {
-    var requestType: RequestType
-    var args: [String : String]? = nil
+    public var requestType: RequestType
+    public var args: [String : String]? = nil
     
     init(requestType: RequestType, args: [String:String]? = nil) {
         self.requestType = requestType
