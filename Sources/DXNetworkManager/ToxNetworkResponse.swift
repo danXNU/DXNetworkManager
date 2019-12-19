@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ToxNetworkResponse {
+public protocol ToxNetworkResponse {
     var code : Int { get set }
     var message : String { get set }
     var errorCode : String? { get set }
@@ -16,7 +16,7 @@ protocol ToxNetworkResponse {
 
 
 /// Semplice Response con oggetto generico (deve conformare a Decodable).
-struct NetworkResponse<T: Decodable>: ToxNetworkResponse, Decodable {
+public struct NetworkResponse<T: Decodable>: ToxNetworkResponse, Decodable {
     var code: Int
     var message: String
     var errorCode: String?

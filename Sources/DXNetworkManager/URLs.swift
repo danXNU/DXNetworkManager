@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct URLs {
+public struct URLs {
     #if DEBUG
         static let mainUrl = "http://192.168.1.5/iGio-Server"
     #else

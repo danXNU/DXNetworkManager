@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkAgent<Response: Decodable> {
+public class NetworkAgent<Response: Decodable> {
     
     /// Esegue una richiesta HTTP alla path che gli dai tramite il parametro 'toxRequest'. Poi ritorna l'oggetto ricevuto dal server tramite il responseCompletion. Il tipo dell'oggetto lo decidi tu quando crei un'istanza di NetworkAgent con un Generic Type. Il generic type deve essere Decodable.
     ///
@@ -57,7 +57,7 @@ class NetworkAgent<Response: Decodable> {
     }
     
     
-    static func getFullPath(from url: String, with args: [String: String]) -> String {
+    public static func getFullPath(from url: String, with args: [String: String]) -> String {
         var urlString = url
         urlString.append("?")
         

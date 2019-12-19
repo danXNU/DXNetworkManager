@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError : Error {
+public enum NetworkError : Error {
     case userError(String)
     case logError(String)
     case other(Error)
