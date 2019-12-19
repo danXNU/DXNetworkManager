@@ -24,7 +24,7 @@ public struct BasicRequest: ToxNetworkRequest {
     public var requestType: String
     public var args: [String : String]? = nil
     
-    init(requestType: String, args: [String:String]? = nil) {
+    public init(requestType: String, args: [String:String]? = nil) {
         self.requestType = requestType
         self.args = args
     }
@@ -41,7 +41,7 @@ public struct DirectRequest: ToxNetworkRequest {
     public var directURL: String
     public var requireRawResponse: Bool
     
-    init(urlString: String, requireRawResponse: Bool = false) {
+    public init(urlString: String, requireRawResponse: Bool = false) {
         self.directURL = urlString
         self.requireRawResponse = requireRawResponse
     }

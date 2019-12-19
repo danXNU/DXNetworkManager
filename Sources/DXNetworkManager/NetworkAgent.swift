@@ -8,9 +8,11 @@
 
 import Foundation
 
-public class NetworkAgent<Response: Decodable> {
+open class NetworkAgent<Response: Decodable> {
     
-    var rawResponseGetter: ((String) -> Void)? = nil
+    public init() {}
+    
+    public var rawResponseGetter: ((String) -> Void)? = nil
     
     /// Esegue una richiesta HTTP alla path che gli dai tramite il parametro 'toxRequest'. Poi ritorna l'oggetto ricevuto dal server tramite il responseCompletion. Il tipo dell'oggetto lo decidi tu quando crei un'istanza di NetworkAgent con un Generic Type. Il generic type deve essere Decodable.
     ///
