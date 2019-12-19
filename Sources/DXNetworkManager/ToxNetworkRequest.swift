@@ -8,8 +8,8 @@
 
 import Foundation
 
-public protocol ToxNetworkRequest : Codable {
-    var requestType : RequestType { get set }
+public protocol ToxNetworkRequest {
+    var requestType : String { get set }
     var args: [String: String]? { get set }
 }
 extension ToxNetworkRequest {
@@ -18,33 +18,31 @@ extension ToxNetworkRequest {
     }
 }
 
-/// Liste dei tipi di richieste
-///
-/// - preghiere
-/// - materiali
-/// - diocesi
-/// - cities
-public enum RequestType: String, Codable {
-    case preghiere = "preghiere"
-    case materiali = "materiali"
-    case locations = "locations"
-    case diocesi = "diocesi"
-    case cities = "citta"
-    case localizedSites = "resources"
-}
-
 /// Struttura di una richiesta. Contiene solo la requestType che è la path del server.
 /// - Esempio: requestType = "example" --> suppstudenti.com:5000/example
 public struct BasicRequest: ToxNetworkRequest {
-    public var requestType: RequestType
+    public var requestType: String
     public var args: [String : String]? = nil
     
-    init(requestType: RequestType, args: [String:String]? = nil) {
+    init(requestType: String, args: [String:String]? = nil) {
         self.requestType = requestType
         self.args = args
     }
     
     enum CodingKeys: String, CodingKey {
         case requestType = "type"
+    }
+}
+
+public struct DirectRequest: ToxNetworkRequest {
+    public var requestType: String = ""
+    public var args: [String : String]? = nil
+    
+    public var directURL: String
+    public var requireRawResponse: Bool
+    
+    init(urlString: String, requireRawResponse: Bool = false) {
+        self.directURL = urlString
+        self.requireRawResponse = requireRawResponse
     }
 }
