@@ -24,7 +24,7 @@ public struct NetworkResponse<T: Decodable>: ToxNetworkResponse, Decodable {
 }
 
 
-public struct BasicResponse: ToxNetworkResponse {
+public struct BasicResponse: ToxNetworkResponse, Decodable {
     public var code : Int
     public var message : String
     public var errorCode : String?
