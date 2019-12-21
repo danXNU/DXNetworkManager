@@ -31,14 +31,17 @@ open class NetworkAgent<Response: Decodable> {
             if requireRawResponse && rawResponseGetter == nil {
                 fatalError("DXNetworkManager: it's requested a raw response but no rawResponseGatter is setted")
             }
-        } else {
+        } else if let req = toxRequest as? BasicRequest {
+            let hostname = req.hostname
             let pathComponent = toxRequest.requestType
-            urlString = "\(URLs.mainUrl)/\(pathComponent).php"
+            urlString = "\(hostname)/\(pathComponent).php"
             
             if let args = toxRequest.args {
                 urlString = NetworkAgent.getFullPath(from: urlString, with: args)
             }
             
+        } else {
+            fatalError("Tipo di RequestType non supportato")
         }
     
         

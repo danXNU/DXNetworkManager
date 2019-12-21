@@ -21,10 +21,12 @@ extension ToxNetworkRequest {
 /// Struttura di una richiesta. Contiene solo la requestType che è la path del server.
 /// - Esempio: requestType = "example" --> suppstudenti.com:5000/example
 public struct BasicRequest: ToxNetworkRequest {
+    public var hostname: String
     public var requestType: String
     public var args: [String : String]? = nil
     
-    public init(requestType: String, args: [String:String]? = nil) {
+    public init(hostname: String, requestType: String, args: [String:String]? = nil) {
+        self.hostname = hostname
         self.requestType = requestType
         self.args = args
     }

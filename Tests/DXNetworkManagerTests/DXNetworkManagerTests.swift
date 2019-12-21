@@ -2,7 +2,7 @@ import XCTest
 @testable import DXNetworkManager
 
 final class DXNetworkManagerTests: XCTestCase {
-    func testExample() {
+    func testDirectExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
@@ -28,6 +28,6 @@ final class DXNetworkManagerTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testDirectExample),
     ]
 }
