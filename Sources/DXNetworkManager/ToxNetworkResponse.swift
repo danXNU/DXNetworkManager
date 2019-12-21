@@ -22,3 +22,10 @@ public struct NetworkResponse<T: Decodable>: ToxNetworkResponse, Decodable {
     public var errorCode: String?
     public var object: T
 }
+
+
+public struct BasicResponse: ToxNetworkResponse {
+    public var code : Int
+    public var message : String
+    public var errorCode : String?
+}
