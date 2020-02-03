@@ -46,7 +46,7 @@ open class NetworkAgent<Response: Decodable> {
     
         
         guard let url = URL(string: urlString) else {
-            responseCompletion?(.failure(.userError("Errore generico di quest'app (Codice: -1)")))
+            responseCompletion?(.failure(.userError("Errore generico di quest'app (Codice: -1). URL non valido: \(urlString)")))
             return
         }
 
