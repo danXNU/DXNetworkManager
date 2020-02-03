@@ -92,7 +92,7 @@ open class NetworkAgent<Response: Decodable> {
         
         for (key, value) in args {
             if key.isEmpty || value.isEmpty { continue }
-            urlString.append("\(key)=\(value)")
+            urlString.append("\(key)=\(value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "DXNetworkManager: ERROR ADDING PERCENT ENCODING")")
             urlString.append("&")
         }
         
